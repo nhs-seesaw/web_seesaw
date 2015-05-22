@@ -168,10 +168,10 @@ $(document).ready(function(){
         total_importance = g1i+g2i+g3i+g4i;
         
         //Calculate Momemnt of each goal        
-        g1 = (g1i * $("#bal1").val())/3;
-        g2 = (g2i * $("#bal2").val())/3;
-        g3 = (g3i * $("#bal3").val())/3;
-        g4 = (g4i * $("#bal4").val())/3;
+        g1 = (g1i * $("#bal1").val())/4;
+        g2 = (g2i * $("#bal2").val())/4;
+        g3 = (g3i * $("#bal3").val())/4;
+        g4 = (g4i * $("#bal4").val())/4;
         
         //Calculate overall momemnt on pivot + % tilt
         moment = g1+g2+g3+g4;
