@@ -1,5 +1,6 @@
 $(document).ready(function(){
-                            
+      
+   
     //Hide All Goals Initally
     $("#goalarea").hide();
 
@@ -14,6 +15,7 @@ $(document).ready(function(){
     
     //Hide Seesaw area
     $(".seesawarea").hide();
+    $("#balchart").hide();
 
 
 
@@ -82,10 +84,13 @@ $(document).ready(function(){
 
 
     //Draw Goals - shows circles + balance goals button
-    $("#drawgoals").on("click", function(){
-        $("#drawgoals").hide();
+    $("#drawgoalsbutton").on("click", function(){
+        $("#drawgoalsbutton").hide();
         $("#goalarea").show();
         $("#positiongoalsbutton").show();
+        $("html, body").animate({
+            scrollTop: $("#goalarea").offset().top}, 2000);
+        
     });
 
 
@@ -94,6 +99,9 @@ $(document).ready(function(){
     $("#positiongoalsbutton").on("click", function(){
         $("#positiongoalsbutton").hide();
         $("#balancearea").show();
+        $("html, body").animate({
+            scrollTop: $("#balancearea").offset().top}, 2000);
+        
         
         
         //Show Option Labels
@@ -120,13 +128,16 @@ $(document).ready(function(){
     $("#showseesawbutton").on("click", function(){
         $("#showseesawbutton").hide();
         drawseesaw();
-        $(".seesawarea").show(); 
+        $(".seesawarea").show();
+        $("html, body").animate({
+            scrollTop: $(".seesawarea").offset().top}, 2000);
     });
     
     
     $("#balancebutton").on("click", function(){
         drawseesaw();
         balanceseesaw();
+        $("#balchart").fadeIn(7000);
     });
     
     function drawseesaw(){
@@ -209,13 +220,33 @@ $(document).ready(function(){
         width_1b = roundToTwo(width_1);
         width_2b = roundToTwo(width_2);
         
-        //
+        //Get Option Names
+        op1 = $("input[name='op1']").val();
+        op2 = $("input[name='op2']").val();
+        
+        //Empty bars
         $("#op1_bar").empty();
         $("#op2_bar").empty();
-        $("#op1_bar").css("width", width_1+"%");
-        $("#op2_bar").css("width", width_2+"%");
-        $("#op1_bar").append(width_1b + "%");
-        $("#op2_bar").append(width_2b + "%");
+        
+        //If Option names set- show these with a space
+        if(op1.length !== 0 && op2.length !==0){
+            $("#op1_bar").append(op1+":&nbsp; ");
+            $("#op1_bar").append(op2+":&nbsp; ");
+        }
+        //Else use 'option 1' and 'option 2'
+        else{
+            $("#op1_bar").append("Option 1:&nbsp; ");
+            $("#op2_bar").append("Option 2:&nbsp; ");
+        }
+        
+        //append % 
+        $("#op1_bar").append(width_2b + "%");
+        $("#op2_bar").append(width_1b + "%");
+        
+        //Set Width
+        $("#op1_bar").css("width", width_2+"%");
+        $("#op2_bar").css("width", width_1+"%");
+        
     };
     
     
