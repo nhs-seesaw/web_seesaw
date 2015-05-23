@@ -139,6 +139,10 @@ and open the template in the editor.
     background:#FF984D;
     background-image: linear-gradient(#FF984D 0px, #AB6E04 100%);
 }
+#goal5_circle, #slider5 .slider-handle{
+    background:#FF5557;
+    background-image: linear-gradient(#FF5557 0px, #B70F0F 100%);
+}
 
 
 .g1{
@@ -157,4 +161,8 @@ and open the template in the editor.
 .g4{
     background:#FF984D;
     background-image: linear-gradient(#FF984D 0px, #AB6E04 100%);
+}
+.g5{
+    background: #FF5557;
+    background-image: linear-gradient(#FF5557 0px, #B70F0F 100%);
 }

@@ -19,6 +19,9 @@ $(document).ready(function(){
 
    //Crude:
    //Function for each of the 4 importance sliders- changes size of goals
+    
+    
+    
     $('#imp1').slider({
         formatter: function(value) {
             h = 1*value/2;
@@ -56,6 +59,26 @@ $(document).ready(function(){
          
         }
     });
+    $('#imp5').slider({
+        formatter: function(value) {
+            h = 1*value/2;
+            $("#goal5_circle").css("width" , h +"em");
+            $("#goal5_circle").css("height" , h +"em");
+            $("#goal5_circle").css("line-height", h + "em");
+         
+        }
+    });
+    $('#imp6').slider({
+        formatter: function(value) {
+            h = 1*value/2;
+            $("#goal6_circle").css("width" , h +"em");
+            $("#goal6_circle").css("height" , h +"em");
+            $("#goal6_circle").css("line-height", h + "em");
+         
+        }
+    });
+    
+    
 
 
     //Draw Goals - shows circles + balance goals button
@@ -77,10 +100,12 @@ $(document).ready(function(){
         op1 = $("input[name='op1']").val();
         op2 = $("input[name='op2']").val();
         
-        $("#balarea_op1_text").empty();
-        $("#balarea_op2_text").empty();
-        $("#balarea_op1_text").append(op1);
-        $("#balarea_op2_text").append(op2);
+        if(op1.length !== 0 && op2.length !==0){
+            $("#balarea_op1_text").empty();
+            $("#balarea_op2_text").empty();
+            $("#balarea_op1_text").append(op1);
+            $("#balarea_op2_text").append(op2);
+        }
         
         //show show seesaw button
         $("#showseesawbutton").show();
@@ -106,51 +131,24 @@ $(document).ready(function(){
     
     function drawseesaw(){
         
-        //Draw SeeSaw:
-        //Blocks -1
-        $("#g1_block").remove();
-        v = $("#imp1").val();
-        if(v > 0){
-            //balance position:
-            bal = $("#bal1").val();
-            //Add new goal block to the appropriate chart segment 
-            $("#s"+bal).append("<div class=\"goalblock g1\" id=\"g1_block\">1</div>");
-
-            //Set height of newly created goal block
-            $("#g1_block").css("height", v + "em");
-            $("#g1_block").css("line-height", v + "em");
+        //Draw SeeSaw - For each goal 1-5, get values + draw
+        for(i=1; i<6; i++){
+            $("#g"+i+"_block").remove();
+            v = $("#imp"+i+"").val();
+            if(v > 0){
+                //Find balance - position on seesaw:
+                bal= $("#bal"+i).val();
+                //Add new goal block to the appropriate chart segment 
+                $("#s"+bal).append("<div class=\"goalblock g"+i+"\" id=\"g"+i+"_block\">"+i+"</div>");
+                //Set height of newly created goal block
+                $("#g"+i+"_block").css("height", v +"em");
+                $("#g"+i+"_block").css("line-height", v +"em");
+            }
         }
         
-        //Blocks -2
-        $("#g2_block").remove();
-        v = $("#imp2").val();
-        if(v > 0){
-            bal = $("#bal2").val();
-            $("#s"+bal).append("<div class=\"goalblock g2\" id=\"g2_block\">2</div>");
-            $("#g2_block").css("height", v + "em");
-            $("#g2_block").css("line-height", v + "em");
-        }
         
-        //Blocks -3
-        $("#g3_block").remove();
-        v = $("#imp3").val();
-        if(v > 0){
-            bal = $("#bal3").val();
-            $("#s"+bal).append("<div class=\"goalblock g3\" id=\"g3_block\">3</div>");
-            $("#g3_block").css("height", v + "em");
-            $("#g3_block").css("line-height", v + "em");
-        }
         
-        //Blocks -4
-        $("#g4_block").remove();
-        v = $("#imp4").val();
-        if(v > 0){
-            bal = $("#bal4").val();
-            $("#s"+bal).append("<div class=\"goalblock g4\" id=\"g4_block\">4</div>");
-            $("#g4_block").css("height", v + "em");
-            $("#g4_block").css("line-height", v + "em");
-        }
-        
+     
         
     };
     
@@ -164,23 +162,25 @@ $(document).ready(function(){
         g2i = parseInt($("#imp2").val(), 10);
         g3i = parseInt($("#imp3").val(), 10);
         g4i = parseInt($("#imp4").val(), 10);
+        g5i = parseInt($("#imp5").val(), 10);
         
-        total_importance = g1i+g2i+g3i+g4i;
+        total_importance = g1i+g2i+g3i+g4i+g5i;
         
         //Calculate Momemnt of each goal        
         g1 = (g1i * $("#bal1").val())/4;
         g2 = (g2i * $("#bal2").val())/4;
         g3 = (g3i * $("#bal3").val())/4;
         g4 = (g4i * $("#bal4").val())/4;
+        g5 = (g5i * $("#bal5").val())/4;
         
         //Calculate overall momemnt on pivot + % tilt
-        moment = g1+g2+g3+g4;
+        moment = g1+g2+g3+g4+g5;
         percentage = (moment / total_importance)*100;
         
         alert("% Swing = "+percentage);
         
-        //Set Seesaw tilt - to a maximum of 33 degrees
-        tilt = percentage/3;
+        //Set Seesaw tilt - to a maximum of 40 degrees
+        tilt = percentage/2.5;
         
         
         
