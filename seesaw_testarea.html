@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SeeSaw Demo</title>
+	<title>SeeSaw Test Area</title>
 
         
 	<!--- Bootstrap CSS -->
@@ -21,7 +21,7 @@
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/bootstrap-slider.min.js" type="text/javascript"></script>
-        <script src="js/seesaw.js" type="text/javascript"></script>
+        <script src="js/seesaw_testarea.js" type="text/javascript"></script>
         
         
 </head>
@@ -30,7 +30,7 @@
     <nav class="navbar navbar-fluid">
         <div class="" style="background: #f86d6d; color:#FFF; padding: 20px;">
             <div style="margin-left: 30px; font-family: sans-serif; ">
-                <h1>Team Balance</h1>
+                <h1>Team Balance Test Area</h1>
                 <div class="hidden-xs">
                     <p>Consultation Aid Demo. Updated 23/5/15 - now with auto scrolling</p>
                 </div>
@@ -95,46 +95,7 @@
 
                         </div>
                         
-                        <!-- Goal 3 -->
-                        <div class="col-md-12">
-                                <div class="input-group-lg col-md-5">
-                                        <input type="text" class="form-control" name="g3_text" placeholder="Goal">
-                                </div>
 
-                                <!-- Slider -->
-                                <div class="input-group-lg col-md-6">
-                                    <input id="imp3" data-slider-id='slider3' type="text" data-slider-min="0" data-slider-max="24" 
-                                           data-slider-step="1"  data-slider-value="0" data-slider-tooltip="hide" />
-                                </div>
-
-                        </div>
-                        
-                        <!-- Goal 4 -->
-                        <div class="col-md-12">
-                                <div class="input-group-lg col-md-5">
-                                        <input type="text" class="form-control" name="g4_text" placeholder="Goal">
-                                </div>
-
-                                <!-- Slider -->
-                                <div class="input-group-lg col-md-6">
-                                    <input id="imp4" data-slider-id='slider4' type="text" data-slider-min="0" data-slider-max="24" 
-                                           data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide" />
-                                </div>
-
-                        </div>
-                        <!-- Goal 5 -->
-                        <div class="col-md-12">
-                                <div class="input-group-lg col-md-5">
-                                        <input type="text" class="form-control" name="g5_text" placeholder="Goal">
-                                </div>
-
-                                <!-- Slider -->
-                                <div class="input-group-lg col-md-6">
-                                    <input id="imp5" data-slider-id='slider5' type="text" data-slider-min="0" data-slider-max="24" 
-                                           data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide" />
-                                </div>
-
-                        </div>
                         
                         <div class="col-md-12" style="margin-top:30px;">
                             <button id="drawgoalsbutton" class="btn btn-lg btn-default center-block">Draw Goals</button>
@@ -142,13 +103,16 @@
                         
                             <!-- Goal Area - Visual representation of goals -->
                             <div id="goalarea">
-                                <h3>Your Goals</h3>
+                                <h3>Your Goals Diameter:</h3>
+                                
                                 <div class="goalcircle g1" id="goal1_circle">1</div>
                                 <div class="goalcircle g2" id="goal2_circle">2</div>
-                                <div class="goalcircle g3" id="goal3_circle">3</div>
-                                <div class="goalcircle g4" id="goal4_circle">4</div>
-                                <div class="goalcircle g5" id="goal5_circle">5</div>
+                                
 
+                                <h3>Your Goals Area</h3>
+                                <div class="goalcircle g1" id="goal1_circle_a">1</div>
+                                <div class="goalcircle g2" id="goal2_circle_a">2</div>
+                                
                             </div>
                             
                             
