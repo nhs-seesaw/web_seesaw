@@ -239,8 +239,7 @@ $(document).ready(function(){
     
     function balanceseesaw(){
         //calculate individual moments
-        //Moments are divided by 3 as true range is between -1 and +1. -3 was used
-        //for convenice working with html and sliders;
+        //Moments are divided by 8 as true range is between -1 and +1.
         
         //Get Importance /weight of each goal (parseInt to cast to number, 10 to ensure its an Int, not a hex etc.)
         g1i = parseInt($("#imp1").val(), 10);
@@ -252,11 +251,11 @@ $(document).ready(function(){
         total_importance = g1i+g2i+g3i+g4i+g5i;
         
         //Calculate Momemnt of each goal        
-        g1 = (g1i * $("#bal1").val())/4;
-        g2 = (g2i * $("#bal2").val())/4;
-        g3 = (g3i * $("#bal3").val())/4;
-        g4 = (g4i * $("#bal4").val())/4;
-        g5 = (g5i * $("#bal5").val())/4;
+        g1 = (g1i * $("#bal1").val())/8;
+        g2 = (g2i * $("#bal2").val())/8;
+        g3 = (g3i * $("#bal3").val())/8;
+        g4 = (g4i * $("#bal4").val())/8;
+        g5 = (g5i * $("#bal5").val())/8;
         
         //Calculate overall momemnt on pivot + % tilt
         moment = g1+g2+g3+g4+g5;
