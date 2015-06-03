@@ -3,6 +3,7 @@ $(document).ready(function(){
    
     //Hide All Goals Initally
     $("#goalarea").hide();
+    
 
     //Hide Balance Position Buttons
     $("#positiongoalsbutton").hide();
@@ -19,54 +20,69 @@ $(document).ready(function(){
 
 
 
-   //Crude:
+   //Verbose:
    //Function for each of the 5 importance sliders- changes size of goals
-    
     
     
     $('#imp1').slider({
         formatter: function(value) {
+            if(value === 0){
+                $("#gb-1").hide();
+            }
+            $("#gb-1").show();
+            
             h = 1*value/2;
-            //$("#goal1_circle").css("width" , h +"em");
-            $("#goal1_circle").css("height" , h +"em");
-            $("#goal1_circle").css("line-height", h + "em");
+            $("#gb-1").css("height" , h +"em");
+            $("#gb-1").css("line-height", h + "em");
 
         }
     });
     $('#imp2').slider({
         formatter: function(value) {
+            if(value === 0){
+                $("#gb-2").hide();
+            }
+            $("#gb-2").show();
             h = 1*value/2;
-            //$("#goal2_circle").css("width" , h +"em");
-            $("#goal2_circle").css("height" , h +"em");
-            $("#goal2_circle").css("line-height", h + "em");
+            $("#gb-2").css("height" , h +"em");
+            $("#gb-2").css("line-height", h + "em");
   
         }
     });
     $('#imp3').slider({
         formatter: function(value) {
+            if(value === 0){
+                $("#gb-3").hide();
+            }
+            $("#gb-3").show();
             h = 1*value/2;
-            //$("#goal3_circle").css("width" , h +"em");
-            $("#goal3_circle").css("height" , h +"em");
-            $("#goal3_circle").css("line-height", h + "em");
+            $("#gb-3").css("height" , h +"em");
+            $("#gb-3").css("line-height", h + "em");
 
         }
     });
     
     $('#imp4').slider({
         formatter: function(value) {
+            if(value === 0){
+                $("#gb-4").hide();
+            }
+            $("#gb-4").show();
             h = 1*value/2;
-            //$("#goal4_circle").css("width" , h +"em");
-            $("#goal4_circle").css("height" , h +"em");
-            $("#goal4_circle").css("line-height", h + "em");
+            $("#gb-4").css("height" , h +"em");
+            $("#gb-4").css("line-height", h + "em");
          
         }
     });
     $('#imp5').slider({
         formatter: function(value) {
+            if(value === 0){
+                $("#gb-5").hide();
+            }
+            $("#gb-5").show();
             h = 1*value/2;
-            //$("#goal5_circle").css("width" , h +"em");
-            $("#goal5_circle").css("height" , h +"em");
-            $("#goal5_circle").css("line-height", h + "em");
+            $("#gb-5").css("height" , h +"em");
+            $("#gb-5").css("line-height", h + "em");
          
         }
     });
@@ -239,7 +255,7 @@ $(document).ready(function(){
     
     function balanceseesaw(){
         //calculate individual moments
-        //Moments are divided by 8 as true range is between -1 and +1.
+        //Moments are divided by 5 as true range is between -1 and +1. 
         
         //Get Importance /weight of each goal (parseInt to cast to number, 10 to ensure its an Int, not a hex etc.)
         g1i = parseInt($("#imp1").val(), 10);
@@ -251,11 +267,11 @@ $(document).ready(function(){
         total_importance = g1i+g2i+g3i+g4i+g5i;
         
         //Calculate Momemnt of each goal        
-        g1 = (g1i * $("#bal1").val())/8;
-        g2 = (g2i * $("#bal2").val())/8;
-        g3 = (g3i * $("#bal3").val())/8;
-        g4 = (g4i * $("#bal4").val())/8;
-        g5 = (g5i * $("#bal5").val())/8;
+        g1 = (g1i * $("#bal1").val())/5;
+        g2 = (g2i * $("#bal2").val())/5;
+        g3 = (g3i * $("#bal3").val())/5;
+        g4 = (g4i * $("#bal4").val())/5;
+        g5 = (g5i * $("#bal5").val())/5;
         
         //Calculate overall momemnt on pivot + % tilt
         moment = g1+g2+g3+g4+g5;

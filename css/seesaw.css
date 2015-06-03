@@ -47,7 +47,7 @@ and open the template in the editor.
 
 .s{
     display: inline-block;
-    width: 5.88%;
+    width: 9.08%;
     padding:0;
     margin: 0;
     bottom: 0;
@@ -55,14 +55,13 @@ and open the template in the editor.
 
 }
 
-.goalcolumn{
+.gb{
     display:block;
     color: #FFF;
     font-size: 2em;
     border: 1px #555 solid;
     text-align: center;
     line-height: 100%;
-    width: 100%;
     display: inline-block;
     background: #08C;
 }
@@ -151,23 +150,23 @@ key_color{
 
 //Goal Circle + Handle Colours:
 
-#goal1_circle, #slider1 .slider-handle{
+#gb-1, #slider1 .slider-handle{
     background:#149BDF;
     background-image: linear-gradient(#149BDF 0px, #0480BE 100%);
 }
-#goal2_circle, #slider2 .slider-handle{
+#gb-2, #slider2 .slider-handle{
     background:#00D881;
     background-image: linear-gradient(#00D881 0px, #008745 100%);
 }
-#goal3_circle, #slider3 .slider-handle{
+#gb-3, #slider3 .slider-handle{
     background:#B600C8;
     background-image: linear-gradient(#B600C8 0px, #7B0087 100%);
 }
-#goal4_circle, #slider4 .slider-handle{
+#gb-4, #slider4 .slider-handle{
     background:#FF984D;
     background-image: linear-gradient(#FF984D 0px, #AB6E04 100%);
 }
-#goal5_circle, #slider5 .slider-handle{
+#gb-5, #slider5 .slider-handle{
     background:#FF5557;
     background-image: linear-gradient(#FF5557 0px, #B70F0F 100%);
 }
